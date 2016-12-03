@@ -6,15 +6,16 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import static android.text.TextUtils.concat;
+import static android.R.attr.id;
 
 public class ChatActivity extends AppCompatActivity {
 
@@ -28,6 +29,7 @@ public class ChatActivity extends AppCompatActivity {
     Context context;
     RelativeLayout typeLayout;
     FloatingActionButton fab;
+    TextView answer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,17 +70,31 @@ public class ChatActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        answer = (TextView) findViewById(R.id.textSpace);
 
-
-
-
+        editText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
+                if (id == EditorInfo.IME_ACTION_DONE) {
+                    //do something
+                    hideKeyboard();
+                    answerString = answerString.concat(String.valueOf(editText.getText())).concat("\n");
+                    answer.setText(answerString);
+                    answer.refreshDrawableState();
+                    answer.setVisibility(View.VISIBLE);
+                    editText.setText("");
+                    return true;
+                }
+                return false;
+            }
+        });
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
     }
 
     private void normalTexting() {
-        final TextView answer = (TextView) findViewById(R.id.textSpace);
+
         editText = (EditText) findViewById(R.id.editText);
         editText.setOnClickListener(new View.OnClickListener() {
             @Override

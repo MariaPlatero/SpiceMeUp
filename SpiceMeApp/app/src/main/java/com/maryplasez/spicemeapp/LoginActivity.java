@@ -23,6 +23,7 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.inputmethod.EditorInfo;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
@@ -33,6 +34,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static android.Manifest.permission.READ_CONTACTS;
+import static com.maryplasez.spicemeapp.R.id.editText;
 
 /**
  * A login screen that offers login via email/password.
@@ -88,6 +90,14 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             @Override
             public boolean onEditorAction(TextView textView, int id, KeyEvent keyEvent) {
                 if (id == R.id.login || id == EditorInfo.IME_NULL) {
+
+                    hideKeyboard();
+                    attemptLogin();
+                    return true;
+                }
+                if(id==EditorInfo.IME_ACTION_DONE){
+                    //do something
+                     hideKeyboard();
                     attemptLogin();
                     return true;
                 }
@@ -211,6 +221,11 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     private boolean isPasswordValid(String password) {
         //TODO: Replace this with your own logic
         return password.length() > 4;
+    }
+
+    protected void hideKeyboard() {
+        InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+        imm.hideSoftInputFromWindow(mPasswordView.getWindowToken(), 0);
     }
 
     /**
