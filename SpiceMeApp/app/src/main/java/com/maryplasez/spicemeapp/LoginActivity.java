@@ -59,7 +59,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     private UserLoginTask mAuthTask = null;
 
     // UI references.
-    private AutoCompleteTextView mEmailView;
+    private TextView mEmailView;
     private EditText mPasswordView;
     private View mProgressView;
     private View mLoginFormView;
@@ -72,7 +72,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         // Set up the login form.
-        mEmailView = (AutoCompleteTextView) findViewById(R.id.email);
+        mEmailView = (TextView) findViewById(R.id.email);
         populateAutoComplete();
         context = this;
         login_button = (Button) findViewById(R.id.login_button);
@@ -300,11 +300,11 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
     private void addEmailsToAutoComplete(List<String> emailAddressCollection) {
         //Create adapter to tell the AutoCompleteTextView what to show in its dropdown list.
-        ArrayAdapter<String> adapter =
-                new ArrayAdapter<>(LoginActivity.this,
-                        android.R.layout.simple_dropdown_item_1line, emailAddressCollection);
-
-        mEmailView.setAdapter(adapter);
+//        ArrayAdapter<String> adapter =
+//                new ArrayAdapter<>(LoginActivity.this,
+//                        android.R.layout.simple_dropdown_item_1line, emailAddressCollection);
+//
+//        mEmailView.setAdapter(adapter);
     }
 
 

@@ -72,6 +72,7 @@ public class ChatActivity extends AppCompatActivity {
         });
         answer = (TextView) findViewById(R.id.textSpace);
 
+        editText = (EditText) findViewById(R.id.editText);
         editText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
@@ -95,7 +96,7 @@ public class ChatActivity extends AppCompatActivity {
 
     private void normalTexting() {
 
-        editText = (EditText) findViewById(R.id.editText);
+
         editText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
