@@ -22,6 +22,7 @@ public class ChatActivity extends AppCompatActivity {
     String inMesssage = new String();
     EditText editText;
     String answerString = new String();
+    User activeUser;
 
     ImageButton text;
     ImageButton spice;
@@ -36,6 +37,7 @@ public class ChatActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         context = this;
         inMesssage = getIntent().getStringExtra("PUSH");
+        activeUser = (User) getIntent().getSerializableExtra("USER");
         setContentView(R.layout.activity_chat);
 
         typeLayout = (RelativeLayout) findViewById(R.id.typeLayout);
@@ -67,6 +69,7 @@ public class ChatActivity extends AppCompatActivity {
 //
 //                fab.setVisibility(View.VISIBLE);
                 Intent intent = new Intent(context, SpiceSelectionActivity.class);
+                intent.putExtra("USER", activeUser);
                 startActivity(intent);
             }
         });
@@ -95,8 +98,6 @@ public class ChatActivity extends AppCompatActivity {
     }
 
     private void normalTexting() {
-
-
         editText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -124,4 +125,16 @@ public class ChatActivity extends AppCompatActivity {
         imm.hideSoftInputFromWindow(editText.getWindowToken(), 0);
     }
 
+    @Override
+    public void onBackPressed() {
+        if(editText.hasFocus()){
+            text.setVisibility(View.VISIBLE);
+            spice.setVisibility(View.VISIBLE);
+            typeLayout.setVisibility(View.GONE);
+        }else{
+        Intent intent = new Intent(context, SpiceSelectionActivity.class);
+        intent.putExtra("USER", activeUser);
+        startActivity(intent);
+        finish();}
+    }
 }

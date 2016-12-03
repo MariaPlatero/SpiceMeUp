@@ -27,14 +27,12 @@ public class Sentences {
         availableSentences.add("I love when you talk like that.");
         availableSentences.add("I miss feeling you inside of me.");
         availableSentences.add("I need you inside of me right now.");
-        availableSentences.add("I need you inside of me right now.");
         availableSentences.add("I read this article about anal today, and it got me thinking.");
         availableSentences.add("I thought of something I want to do to you tonight.");
         availableSentences.add("I want you to do exactly what you did last time.");
         availableSentences.add("I want you to kiss me.");
         availableSentences.add("I want you to lie back and let me take care of you tonight.");
         availableSentences.add("I want you to touch me.");
-        availableSentences.add("I want you.");
         availableSentences.add("I want you.");
         availableSentences.add("It’s so hot to imagine you tying me up.");
         availableSentences.add("It’s too bad you’re not here right now.");
@@ -52,7 +50,6 @@ public class Sentences {
         availableSentences.add("I’ve never felt as attracted to anyone else as I am to you.");
         availableSentences.add("My clothes are coming off the second you get home.");
         availableSentences.add("Tell me more.");
-        availableSentences.add("Tell me what you think about when you masturbate.");
         availableSentences.add("Tell me what you think about when you masturbate.");
         availableSentences.add("That turns me on so much.");
         availableSentences.add("The anticipation is killing me.");
