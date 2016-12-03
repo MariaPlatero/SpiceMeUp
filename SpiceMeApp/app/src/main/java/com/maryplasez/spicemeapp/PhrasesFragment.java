@@ -2,6 +2,7 @@ package com.maryplasez.spicemeapp;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -38,6 +39,8 @@ public class PhrasesFragment extends Fragment {
         TextView textView = (TextView) rootView.findViewById(R.id.section_label);
         // textView.setText(getArguments().getString("TITLE"));
         rv = (RecyclerView) rootView.findViewById(R.id.recycler);
+        LinearLayoutManager lm = new LinearLayoutManager(getContext());
+        rv.setLayoutManager(lm);
 
         initAdapter();
         return rootView;
@@ -64,7 +67,7 @@ public class PhrasesFragment extends Fragment {
 
             @Override
             public int getItemCount() {
-                return getArguments().getStringArrayList("nouns").size();
+                return Sentences.returnWords().size();
             }
         });
     }
