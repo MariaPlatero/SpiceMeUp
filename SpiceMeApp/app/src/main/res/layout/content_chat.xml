@@ -13,32 +13,34 @@
     tools:context="com.maryplasez.spicemeapp.ChatActivity"
     tools:showIn="@layout/activity_chat">
 
-
     <LinearLayout
         android:id="@+id/scrollView"
         android:layout_width="match_parent"
         android:layout_height="400dp"
         android:layout_gravity="center"
         android:orientation="vertical"
-        android:padding="2dp">
+        android:padding="2dp"
+        >
 
         <TextView
             android:id="@+id/inputText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="#FFADBF"
+            android:background="@drawable/simple_bubble"
             android:padding="6dp"
             android:layout_gravity="left"
             android:layout_marginRight="36dp"
             android:layout_margin="8dp"
-            android:visibility="gone"/>
+            android:visibility="gone"
+
+            />
 
         <TextView
             android:id="@+id/textSpace"
             android:layout_marginLeft="36dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="#A3E0FF"
+            android:background="@drawable/answer_bubble"
             android:layout_gravity="right"
             android:padding="6dp"
             android:layout_margin="8dp"
