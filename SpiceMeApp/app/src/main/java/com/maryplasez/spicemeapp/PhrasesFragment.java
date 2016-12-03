@@ -8,6 +8,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 /**
  * Created by platerosanchezm on 03/12/2016.
  */
@@ -22,8 +24,8 @@ public class PhrasesFragment extends Fragment {
     public static PhrasesFragment newInstance(int sectionNumber) {
         PhrasesFragment fragment = new PhrasesFragment();
         Bundle args = new Bundle();
-        args.putString("TITLE", "Create a Phrase");
-//            args.putInt(ARG_SECTION_NUMBER, sectionNumber);
+        Words w = new Words();
+        args.putStringArrayList("phrases", new ArrayList(w.returnDeterminants()));
         fragment.setArguments(args);
         return fragment;
     }
@@ -46,17 +48,22 @@ public class PhrasesFragment extends Fragment {
     rv.setAdapter(new RecyclerView.Adapter() {
             @Override
             public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-                return null;
+                LayoutInflater inflater = LayoutInflater.from(parent.getContext());
+
+                View v = inflater.inflate(R.layout.item, parent, false);
+                return new PhrasesViewHolder(v);
             }
 
             @Override
             public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-
+                holder = (PhrasesViewHolder) holder;
+                ArrayList<String> phrases = getArguments().getStringArrayList("phrases");
+                ((PhrasesViewHolder) holder).setText(phrases.get(position));
             }
 
             @Override
             public int getItemCount() {
-                return 0;
+                return getArguments().getStringArrayList("phrases").size();
             }
         });
     }
