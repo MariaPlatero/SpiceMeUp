@@ -28,7 +28,6 @@ public class PhrasesFragment extends Fragment {
     }
 
     public static PhrasesFragment newInstance(int type) {
-
         return new PhrasesFragment(type);
     }
 
@@ -37,7 +36,6 @@ public class PhrasesFragment extends Fragment {
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_spice_selection, container, false);
         TextView textView = (TextView) rootView.findViewById(R.id.section_label);
-        // textView.setText(getArguments().getString("TITLE"));
         rv = (RecyclerView) rootView.findViewById(R.id.recycler);
         LinearLayoutManager lm = new LinearLayoutManager(getContext());
         rv.setLayoutManager(lm);

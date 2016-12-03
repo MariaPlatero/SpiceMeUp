@@ -1,20 +1,25 @@
 package com.maryplasez.spicemeapp;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.Telephony;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class SpiceSelectionActivity extends AppCompatActivity {
 
@@ -58,9 +63,23 @@ public class SpiceSelectionActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(context, PeopleActivity.class);
-                intent.putStringArrayListExtra("SENTENCE", selectedSentence);
-                startActivity(intent);
+                Random r = new Random();
+                int max = Sentences.returnWords().size();
+                int random_index = r.nextInt(max);
+                String spice = Sentences.returnWords().get(random_index);
+                new AlertDialog.Builder(context)
+                        .setTitle("Random Spice: " + spice)
+                        .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                // continue with delete
+                            }
+                        })
+                        .setIcon(android.R.drawable.ic_dialog_alert)
+                        .show();
+
+                // Intent intent = new Intent(context, PeopleActivity.class);
+                // intent.putStringArrayListExtra("SENTENCE", selectedSentence);
+                // startActivity(intent);
             }
         });
 
@@ -87,6 +106,11 @@ public class SpiceSelectionActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void spiceClicked(View view) {
+        TextView vw = (TextView) view;
+        vw.setText(vw.getText() + " CLICKED!!!");
     }
 
     /**
