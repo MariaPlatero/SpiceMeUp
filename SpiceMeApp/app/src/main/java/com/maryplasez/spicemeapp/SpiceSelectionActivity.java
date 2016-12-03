@@ -50,6 +50,7 @@ public class SpiceSelectionActivity extends AppCompatActivity {
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        toolbar.setTitle("SpiceMeApp");
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
@@ -110,6 +111,7 @@ public class SpiceSelectionActivity extends AppCompatActivity {
 
     public void spiceClicked(View view) {
         TextView vw = (TextView) view;
+        vw.setSelected(true);
         vw.setText(vw.getText() + " CLICKED!!!");
     }
 
