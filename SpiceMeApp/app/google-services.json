@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "1050639557161",
+    "firebase_url": "https://spicemeup-49671.firebaseio.com",
+    "project_id": "spicemeup-49671",
+    "storage_bucket": "spicemeup-49671.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1050639557161:android:c02bffc32e9f047b",
+        "android_client_info": {
+          "package_name": "com.maryplasez.spicemeapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1050639557161-7emvmnqjgo0es4f8v17iddhf1n8uuvdi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBiXfu5DoLcmMAEo-wbM_hsHXfoyVqL_gM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
