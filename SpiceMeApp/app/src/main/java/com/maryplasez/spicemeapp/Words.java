@@ -259,7 +259,7 @@ public class Words {
         availablePunctuations.add("!");
         availablePunctuations.add("?");
         availablePunctuations.add(".");
-        availablePunctuations.add("¯\_(ツ)_/¯");
+        availablePunctuations.add("¯\\_(ツ)_/¯");
 
         return availablePunctuations;
     }
