@@ -20,14 +20,15 @@ public class PhrasesFragment extends Fragment {
      * number.
      */
     private RecyclerView rv;
+    private int type;
 
-    public static PhrasesFragment newInstance(int sectionNumber) {
-        PhrasesFragment fragment = new PhrasesFragment();
-        Bundle args = new Bundle();
-        Words w = new Words();
-        args.putStringArrayList("phrases", new ArrayList(w.returnDeterminants()));
-        fragment.setArguments(args);
-        return fragment;
+    public PhrasesFragment(int type) {
+        this.type = type;
+    }
+
+    public static PhrasesFragment newInstance(int type) {
+
+        return new PhrasesFragment(type);
     }
 
     @Override
@@ -35,7 +36,7 @@ public class PhrasesFragment extends Fragment {
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_spice_selection, container, false);
         TextView textView = (TextView) rootView.findViewById(R.id.section_label);
-        textView.setText(getArguments().getString("TITLE"));
+        // textView.setText(getArguments().getString("TITLE"));
         rv = (RecyclerView) rootView.findViewById(R.id.recycler);
 
         initAdapter();
@@ -56,14 +57,14 @@ public class PhrasesFragment extends Fragment {
 
             @Override
             public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-                holder = (PhrasesViewHolder) holder;
-                ArrayList<String> phrases = getArguments().getStringArrayList("phrases");
+                ArrayList<String> phrases = type == 0 ? (ArrayList<String>) Sentences.returnWords()
+                        :(ArrayList<String>) Sentences.returnWords();
                 ((PhrasesViewHolder) holder).setText(phrases.get(position));
             }
 
             @Override
             public int getItemCount() {
-                return getArguments().getStringArrayList("phrases").size();
+                return getArguments().getStringArrayList("nouns").size();
             }
         });
     }

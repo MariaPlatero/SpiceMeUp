@@ -9,10 +9,10 @@ import java.util.List;
 
 public class Sentences {
 
-    private List<String> availableSentences = new ArrayList<>();
 
-    public List<String> returnWords(){
 
+    public static List<String> returnWords(){
+         List<String> availableSentences = new ArrayList<>();
         availableSentences.add("Hello beautiful");
         availableSentences.add("I can’t control myself when I’m near you.");
         availableSentences.add("I can’t get enough of you.");
