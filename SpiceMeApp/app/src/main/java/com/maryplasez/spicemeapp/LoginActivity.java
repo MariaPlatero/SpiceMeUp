@@ -61,7 +61,9 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     private EditText mPasswordView;
     private View mProgressView;
     private View mLoginFormView;
+    private View buttons;
     private Context context;
+    private Button login_button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,7 +73,16 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         mEmailView = (AutoCompleteTextView) findViewById(R.id.email);
         populateAutoComplete();
         context = this;
+        login_button = (Button) findViewById(R.id.login_button);
+        buttons = (View) findViewById(R.id.buttons);
 
+        login_button.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mLoginFormView.setVisibility(View.VISIBLE);
+                buttons.setVisibility(View.GONE);
+            }
+        });
         mPasswordView = (EditText) findViewById(R.id.password);
         mPasswordView.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
@@ -92,7 +103,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             }
         });
 
-        mLoginFormView = findViewById(R.id.login_form);
+        mLoginFormView = findViewById(R.id.email_login_form);
         mProgressView = findViewById(R.id.login_progress);
     }
 
