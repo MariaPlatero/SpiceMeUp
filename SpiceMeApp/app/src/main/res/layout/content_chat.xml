@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/content_chat"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:orientation="vertical"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
@@ -13,4 +13,105 @@
     tools:context="com.maryplasez.spicemeapp.ChatActivity"
     tools:showIn="@layout/activity_chat">
 
-</RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:padding="2dp">
+
+        <TextView
+            android:id="@+id/inputText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#E14164"
+            android:padding="6dp"
+            android:layout_gravity="left"
+            android:layout_marginRight="36dp"
+            android:layout_margin="8dp"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/textSpace"
+            android:layout_marginLeft="36dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#6CD4FF"
+            android:layout_gravity="right"
+            android:padding="6dp"
+            android:layout_margin="8dp"
+            android:visibility="gone"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_below="@+id/scrollView"
+        android:background="#404E5C"
+        android:gravity="bottom"
+        android:orientation="horizontal"
+        android:padding="2dp">
+
+        <ImageButton
+            android:layout_alignParentRight="true"
+            android:id="@+id/normaltext"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="right"
+            android:background="#48B2E8"
+            android:elevation="2dp"
+            android:layout_weight="1"
+            android:gravity="end"
+            android:scaleType="fitCenter"
+            android:src="@android:drawable/ic_menu_send" />
+
+        <ImageButton
+            android:layout_alignParentRight="true"
+            android:id="@+id/Spice"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="right"
+            android:layout_weight="1"
+            android:background="#A3E0FF"
+            android:elevation="2dp"
+            android:gravity="end"
+            android:scaleType="fitCenter"
+            android:src="@mipmap/icon" />
+
+        <RelativeLayout
+            android:id="@+id/typeLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:background="@android:color/white"
+            android:visibility="gone">
+
+            <EditText
+                android:id="@+id/editText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:inputType="textPersonName"
+                android:layout_marginEnd="50dp"
+                android:paddingLeft="8dp"
+                android:text="Chat here!" />
+
+            <ImageButton
+                android:layout_alignParentRight="true"
+                android:id="@+id/button"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="right"
+                android:background="#E14164"
+                android:elevation="2dp"
+                android:gravity="end"
+                android:scaleType="fitCenter"
+                android:src="@android:drawable/ic_menu_send" />
+        </RelativeLayout>
+    </LinearLayout>
+
+</LinearLayout>

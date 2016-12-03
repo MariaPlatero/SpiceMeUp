@@ -66,12 +66,16 @@ public class SpiceSelectionActivity extends AppCompatActivity {
                 Random r = new Random();
                 int max = Sentences.returnWords().size();
                 int random_index = r.nextInt(max);
-                String spice = Sentences.returnWords().get(random_index);
+                final String spice = Sentences.returnWords().get(random_index);
                 new AlertDialog.Builder(context)
                         .setTitle("Random Spice: " + spice)
                         .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
                                 // continue with delete
+                                Intent intent = new Intent(context, ChatActivity.class);
+                                intent.putExtra("PUSH", spice);
+                                startActivity(intent);
+                                finish();
                             }
                         })
                         .setIcon(android.R.drawable.ic_dialog_alert)
@@ -111,6 +115,10 @@ public class SpiceSelectionActivity extends AppCompatActivity {
     public void spiceClicked(View view) {
         TextView vw = (TextView) view;
         vw.setText(vw.getText() + " CLICKED!!!");
+        Intent intent = new Intent(context, ChatActivity.class);
+        intent.putExtra("PUSH", vw.getText());
+        startActivity(intent);
+        finish();
     }
 
     /**

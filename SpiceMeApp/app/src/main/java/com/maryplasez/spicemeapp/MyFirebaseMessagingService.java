@@ -64,7 +64,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
             Log.d(TAG, "Message Notification Body: " + remoteMessage.getNotification().getBody());
         }
 
-        Intent intent = new Intent(getBaseContext(), SpiceSelectionActivity.class);
+        Intent intent = new Intent(getBaseContext(), ChatActivity.class);
 //        intent.putExtra("USER", user);
         startActivity(intent);
         // Also if you intend on generating your own notifications as a result of a received FCM
