@@ -13,6 +13,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -87,6 +88,11 @@ public class SpiceSelectionActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void spiceClicked(View view) {
+        TextView vw = (TextView) view;
+        vw.setText(vw.getText() + " CLICKED!!!");
     }
 
     /**
