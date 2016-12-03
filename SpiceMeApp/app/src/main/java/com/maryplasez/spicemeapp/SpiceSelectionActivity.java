@@ -117,7 +117,6 @@ public class SpiceSelectionActivity extends AppCompatActivity {
     public void spiceClicked(View view) {
         TextView vw = (TextView) view;
         vw.setSelected(true);
-        vw.setText(vw.getText() + " CLICKED!!!");
         Intent intent = new Intent(context, ChatActivity.class);
         intent.putExtra("PUSH", vw.getText());
         startActivity(intent);
