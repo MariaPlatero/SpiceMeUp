@@ -9,6 +9,7 @@ import android.widget.TextView;
  */
 public class PhrasesViewHolder extends RecyclerView.ViewHolder{
 
+
     TextView tv;
 
     public PhrasesViewHolder(View itemView) {
