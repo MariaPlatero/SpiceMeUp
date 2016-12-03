@@ -23,7 +23,7 @@
             android:layout_width="300dp"
             android:layout_height="300dp"
             android:layout_gravity="center"
-            android:src="@drawable/spicelogin" />
+            android:src="@drawable/spicelogin_transparent" />
 
         <RelativeLayout
             android:id="@+id/buttons"
