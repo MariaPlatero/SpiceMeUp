@@ -69,15 +69,15 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        Intent startingIntent = getIntent();
-        if (startingIntent != null && !getIntent().getAction().equals("android.intent.action.MAIN")) {
-            Log.i("INTENT", "startingIntent: " + startingIntent.getAction());
-            String title ="I want to lick you till you swear allegiance to the empire";
-            Intent intent = new Intent(this, ChatActivity.class);
-            intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
-            intent.putExtra("PUSH", title);
-            startActivity(intent);
-        }
+//        Intent startingIntent = getIntent();
+//        if (startingIntent != null ) {
+//            Log.i("INTENT", "startingIntent: " + startingIntent.getAction());
+//            String title ="I want to lick you till you swear allegiance to the empire";
+//            Intent intent = new Intent(this, ChatActivity.class);
+//            intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+//            intent.putExtra("PUSH", title);
+//            startActivity(intent);
+//        }
 
         setContentView(R.layout.activity_login);
         // Set up the login form.
@@ -378,8 +378,8 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
             if (success) {
                 User user = new User(mName, mPassword);
-                Intent intent = new Intent(context, SpiceSelectionActivity.class);
-                intent.putExtra("USER", user);
+                Intent intent = new Intent(context, PeopleActivity.class);
+                intent.putExtra("USER", "Mary");
                 startActivity(intent);
                 finish();
             } else {

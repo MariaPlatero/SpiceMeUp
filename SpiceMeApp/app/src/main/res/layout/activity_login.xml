@@ -51,7 +51,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/login_button"
             android:layout_gravity="bottom"
-            android:background="@color/colorAccent"
+            android:background="@color/colorPinkt"
             android:text="SING UP"
             android:textColor="@android:color/white" />
 
@@ -105,7 +105,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:background="@color/colorAccent"
+            android:background="@color/colorPinkt"
             android:text="@string/action_sign_in"
             android:textColor="@android:color/white"
             android:textStyle="bold" />

@@ -4,8 +4,8 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.provider.Telephony;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -33,7 +33,7 @@ public class SpiceSelectionActivity extends AppCompatActivity {
      * {@link android.support.v4.app.FragmentStatePagerAdapter}.
      */
     private SectionsPagerAdapter mSectionsPagerAdapter;
-    private User activeUser;
+    private String activeUser;
     private ArrayList<String> selectedSentence;
     private Context context;
 
@@ -47,11 +47,13 @@ public class SpiceSelectionActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_spice_selection);
         context = this;
-        activeUser = (User) getIntent().getSerializableExtra("USER");
+        activeUser = (String) getIntent().getStringExtra("USER");
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        toolbar.setTitle("Chat now " + activeUser.getName() + "!");
+        if(activeUser!=null) {
+            toolbar.setTitle("Chat now " + activeUser + "!");
+        }
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
@@ -62,6 +64,7 @@ public class SpiceSelectionActivity extends AppCompatActivity {
 
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#E14164")));
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

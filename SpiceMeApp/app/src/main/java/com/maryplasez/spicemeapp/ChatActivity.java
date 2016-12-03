@@ -22,7 +22,7 @@ public class ChatActivity extends AppCompatActivity {
     String inMesssage = new String();
     EditText editText;
     String answerString = new String();
-    User activeUser;
+    String activeUser;
 
     ImageButton text;
     ImageButton spice;
@@ -35,10 +35,11 @@ public class ChatActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_chat);
+
         context = this;
         inMesssage = getIntent().getStringExtra("PUSH");
-        activeUser = (User) getIntent().getSerializableExtra("USER");
-        setContentView(R.layout.activity_chat);
+        activeUser = (String) getIntent().getStringExtra("USER");
 
         typeLayout = (RelativeLayout) findViewById(R.id.typeLayout);
         fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -69,7 +70,7 @@ public class ChatActivity extends AppCompatActivity {
 //
 //                fab.setVisibility(View.VISIBLE);
                 Intent intent = new Intent(context, SpiceSelectionActivity.class);
-                intent.putExtra("USER", activeUser);
+                intent.putExtra("USER", "Mary");
                 startActivity(intent);
             }
         });
@@ -79,6 +80,7 @@ public class ChatActivity extends AppCompatActivity {
         editText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
+
                 if (id == EditorInfo.IME_ACTION_DONE) {
                     //do something
                     hideKeyboard();
@@ -87,6 +89,10 @@ public class ChatActivity extends AppCompatActivity {
                     answer.refreshDrawableState();
                     answer.setVisibility(View.VISIBLE);
                     editText.setText("");
+
+                    text.setVisibility(View.VISIBLE);
+                    spice.setVisibility(View.VISIBLE);
+                    typeLayout.setVisibility(View.GONE);
                     return true;
                 }
                 return false;
@@ -115,6 +121,9 @@ public class ChatActivity extends AppCompatActivity {
                 answer.refreshDrawableState();
                 answer.setVisibility(View.VISIBLE);
                 editText.setText("");
+                text.setVisibility(View.VISIBLE);
+                spice.setVisibility(View.VISIBLE);
+                typeLayout.setVisibility(View.GONE);
             }
         });
     }
@@ -133,7 +142,7 @@ public class ChatActivity extends AppCompatActivity {
             typeLayout.setVisibility(View.GONE);
         }else{
         Intent intent = new Intent(context, SpiceSelectionActivity.class);
-        intent.putExtra("USER", activeUser);
+        intent.putExtra("USER", "Mary");
         startActivity(intent);
         finish();}
     }

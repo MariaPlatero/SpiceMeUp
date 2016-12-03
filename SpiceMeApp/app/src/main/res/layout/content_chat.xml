@@ -99,8 +99,7 @@
                 android:layout_alignParentStart="true"
                 android:inputType="textPersonName"
                 android:layout_marginEnd="50dp"
-                android:paddingLeft="8dp"
-                android:text="Chat here!" />
+                android:paddingLeft="8dp" />
 
             <ImageButton
                 android:layout_alignParentRight="true"
