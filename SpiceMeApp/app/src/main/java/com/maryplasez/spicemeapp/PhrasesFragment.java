@@ -46,7 +46,6 @@ public class PhrasesFragment extends Fragment {
 
     private void initAdapter() {
 
-
     rv.setAdapter(new RecyclerView.Adapter() {
             @Override
             public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -64,9 +63,9 @@ public class PhrasesFragment extends Fragment {
             }
 
             @Override
-            public int getItemCount() {
-                return Sentences.returnWords().size();
-            }
-        });
+                public int getItemCount() {
+                    return Sentences.returnWords().size();
+                }
+            });
     }
 }
