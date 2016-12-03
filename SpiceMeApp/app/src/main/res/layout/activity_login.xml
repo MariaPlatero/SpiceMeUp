@@ -32,6 +32,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
+        android:visibility="visible"
         android:gravity="bottom">
 
         <Button
@@ -58,6 +59,7 @@
 
     <LinearLayout
         android:id="@+id/email_login_form"
+        android:layout_marginTop="40dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"

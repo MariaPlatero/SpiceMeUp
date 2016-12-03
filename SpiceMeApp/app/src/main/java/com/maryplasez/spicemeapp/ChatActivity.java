@@ -124,5 +124,4 @@ public class ChatActivity extends AppCompatActivity {
         imm.hideSoftInputFromWindow(editText.getWindowToken(), 0);
     }
 
-
 }

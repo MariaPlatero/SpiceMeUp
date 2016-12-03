@@ -196,4 +196,16 @@ public class SpiceSelectionActivity extends AppCompatActivity {
             return null;
         }
     }
+
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+
+        Intent intent = new Intent(this, ChatActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+//        intent.putExtra("PUSH", title);
+
+    }
 }

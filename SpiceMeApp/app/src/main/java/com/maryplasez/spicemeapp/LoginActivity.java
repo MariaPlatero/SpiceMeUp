@@ -19,13 +19,12 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.ArrayAdapter;
-import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -34,7 +33,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static android.Manifest.permission.READ_CONTACTS;
-import static com.maryplasez.spicemeapp.R.id.editText;
 
 /**
  * A login screen that offers login via email/password.
@@ -70,6 +68,17 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        Intent startingIntent = getIntent();
+        if (startingIntent != null && !getIntent().getAction().equals("android.intent.action.MAIN")) {
+            Log.i("INTENT", "startingIntent: " + startingIntent.getAction());
+            String title ="I want to lick you till you swear allegiance to the empire";
+            Intent intent = new Intent(this, ChatActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+            intent.putExtra("PUSH", title);
+            startActivity(intent);
+        }
+
         setContentView(R.layout.activity_login);
         // Set up the login form.
         mEmailView = (TextView) findViewById(R.id.email);
@@ -123,6 +132,12 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         }
 
         getLoaderManager().initLoader(0, null, this);
+    }
+
+    @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        Log.i("INTENT", "type: " + intent.getAction());
     }
 
     private boolean mayRequestContacts() {

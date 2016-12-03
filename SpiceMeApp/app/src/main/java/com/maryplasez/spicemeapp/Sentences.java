@@ -19,6 +19,7 @@ public class Sentences {
         availableSentences.add("I can’t get last night out of my mind.");
         availableSentences.add("I had such a good dream about you last night.");
         availableSentences.add("I just got out of the shower.");
+        availableSentences.add("I want to lick you till you swear allegiance to the empire");
         availableSentences.add("I like thinking about you touching yourself.");
         availableSentences.add("I love looking into your eyes.");
         availableSentences.add("I love the way you make me feel.");
